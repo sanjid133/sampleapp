@@ -1,0 +1,25 @@
+name: Github CI/CD Demo
+
+on:
+  push:
+
+jobs:
+    testjob1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Demo step 1
+              run: echo "Hi step 1"
+            - name: Demo step 2
+              run: |
+                echo "Demo step 2"
+                ls -lah
+    testjob2:
+        runs-on: ubuntu-latest
+        needs: testjob1
+        steps:
+            - name: Demo step 3
+              run: echo "Hi step 3"
+            - name: Demo step 4
+              run: |
+                echo "Demo step 4"
+                ls -lah
