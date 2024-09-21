@@ -1,0 +1,21 @@
+name: Run on pull req
+
+on:
+  pull_request:
+    branches:
+        - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout 
+              uses: actions/checkout@v2
+            - name: Install Go Dependencies
+              uses: actions/setup-go@v5
+              with:
+                go-version: '1.22.1'
+            - name: Build the project
+              run: go build -v
+            - name: Run tests
+              run: go test -v
