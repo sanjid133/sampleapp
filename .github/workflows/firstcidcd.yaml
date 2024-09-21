@@ -12,7 +12,8 @@ jobs:
             - name: Demo step 2
               run: |
                 echo "Demo step 2"
-                ls -lah
+                apt install git
+                
     testjob2:
         runs-on: ubuntu-latest
         needs: testjob1
